@@ -1,0 +1,171 @@
+.cabecalho__menu_hamburgue{
+    width: 24px;
+    height: 24px;
+    background-image: url(../assents/Menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+   display: inline-block;
+}
+
+.container__botao:checked~.container__rotulo>.cabecalho__menu_hamburgue{
+    background-image: url(../assents/Menu\ Aberto.svg);
+}
+
+.container__botao:checked~.container__rotulo{
+    background: var(--azul-degrade);
+}
+
+.cabecalho{
+    background-color: var(--branco);
+    display: flex; /* transforma em container flex*/
+    justify-content: space-between; /* separa cada elemento entre eles*/
+    align-items: center;
+    position: relative;
+}
+
+.container{
+    display: flex;
+    align-items: center; /* alinha no centro do elemento*/
+}
+
+.container__imagem{
+    padding: 1em;
+}
+
+.lista-menu{
+    display: none; /* desaparece com o elemento e nao ocupa espaço nenhum*/
+    position: absolute; /* que se movimente de acordo com o cabeçalho*/
+    width: 60vw; /* pega a largura da tela 'vw'*/
+}
+
+.container__botao:checked~.lista-menu{ /*container__botao- seleciona o imput, checked detecta se esta preenchido o imput,estiver lista menu*/
+    display: block;
+    top: 100%;
+}
+
+.lista-menu__titulo,
+.lista-menu__item{
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link{
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* so vai colocar cor no texto*/
+    text-transform: uppercase;
+}
+
+.container__botao{
+    display: none;
+}
+
+.container__titulo{
+    display: none;
+}
+
+.opcoes{
+    display: none;
+}
+
+.container__texto{
+    display: none;
+}
+
+@media screen and (min-width: 1024px){ /* tela de tablet*/
+
+    .container__titulo,
+    .container__titulo-negrito{
+        font-family: var(--font-segundaria);
+        font-size: 30px;
+    }
+    
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo-negrito{
+        font-weight: 700;
+    }
+
+    .opcoes{
+        display: flex;
+        
+    }
+
+    .opcoes__item{
+        padding: 0 1em; /* dar espaçamento apenas n=dos lados*/
+        text-transform: uppercase;
+    }
+
+    .opcoes__link{
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente{
+        display: none;
+    } 
+
+    .cabecalho__menu_hamburgue{
+        display: none;
+    }
+
+    .opcoes__botao:checked ~.lista-menu{ /* qdo checked for acionado vai mostrar lista-menu, o menu vai aparecer*/
+        display: block;
+        width: auto;
+        top: 100%; /* menu ficar para baixo*/
+    }
+
+    .opcoes__botao{
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item{
+        background: var(--azul-degrade);
+        color: var(--branco);
+        
+    }
+
+    .opcoes__item{
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover{
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover>.lista-menu__link{
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+
+}
+
+@media screen and (min-width: 1728px){
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto)
+    }
+
+    .cabecalho{
+        padding: 0 2em;
+    }
+
+    .opcoes{
+        margin-right: auto;
+    }
+    
+    .container__texto{
+        display: block;
+    }
+}
